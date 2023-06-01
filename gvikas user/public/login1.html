@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+  </head>
+  <body>
+    <form id="loginForm">
+      <input type="email" name="email" placeholder="Email" required><br>
+      <input type="password" name="password" placeholder="Password" required><br>
+      <input type="submit" value="Login">
+    </form>
+
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        const response = await fetch('/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(formData)),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          document.cookie = `token=${data.token}; path=/`;
+          location.href = '/';
+        } else {
+          alert(await response.text());
+        }
+      });
+    </script>
+  </body>
+</html>

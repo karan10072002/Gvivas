@@ -1,0 +1,26 @@
+ <html>
+     <head>
+       <meta charset="UTF-8">
+       <title>Home</title>
+     </head>
+     <body>
+       <h1>Welcome!</h1>
+       <p>You are logged in as <span id="email"></span>.</p>
+          <script>
+     const token = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
+
+     (async () => {
+       const response = await fetch('/user', {
+         headers: { Authorization: `Bearer ${token}` },
+       });
+
+       if (response.ok) {
+         const data = await response.json();
+         document.getElementById('email').textContent = data.email;
+       } else {
+         location.href = '/login';
+       }
+     })();
+   </script>
+ </body>
+ </html>

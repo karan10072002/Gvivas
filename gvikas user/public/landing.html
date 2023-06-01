@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="stylesheet" href="/about.css">
+     <!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Gvikas.com</title>
+   
+    <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gvikas</title>
+    <style type="text/css">
+        *{
+            padding: 0;margin: 0;box-sizing: border-box;
+        }
+        header{
+            width: 100%;
+            height: 100vh;
+            background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.2)), url("img1.jpg");
+            background-size: cover;
+            font-family: sans-serif;
+        }
+        nav{
+            width: 100%;
+            height: 100px;
+            
+            color: black;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .logo{
+            font-size: 2em;
+            letter-spacing: 2px;
+            color: blue;
+
+        }
+        .menu a{
+            text-decoration: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 20px;
+            position: relative;
+        }
+        .menu a::before{
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0%;
+            height: 100%;
+            border-bottom: 2px solid indianred;
+            transition: 0.4s linear;
+
+        }
+        .menu a:hover::before{
+            width: 90%;
+        }
+        .button{
+            text-decoration: none;
+         color: white;
+            padding: 10px 20px;
+            font-size: 20px;
+            background-color: indianred;
+            border-radius: 8px;
+            text-decoration: none;
+
+}
+.button a{
+    text-decoration: none;
+}
+.button:hover{
+
+    background: transparent;
+    border: 1px solid indianred;
+}
+.h-text{
+    max-width: 650px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: white;
+}
+.h-text span{
+    letter-spacing: 5px;
+
+}
+.h-text h1{
+    font-size: 3.5em;
+}
+.h-text a{
+    text-decoration: none;
+    background: indianred;
+    padding: 10px 20px ;
+    letter-spacing: 3px;
+    transition: 00.4s;
+}
+.h-text a:hover{
+    text-decoration: none;
+    background: transparent;
+    border: 1px solid indianred;
+
+
+}
+
+    </style>
+</head>
+<body> 
+
+    <header>
+        <nav>
+    <div class="logo"><h1><img src="logo2.png" alt="logo" width="170" height="170"></h1></div>
+    <div class="menu">
+        <a href="#"><b>Home</b></a>
+        <a href="/Gvikas-AboutUs1.html"><b>About Us</b></a>
+        <a href="#"><b>Services</b></a>
+         <a href="/Gvikas-Feedback.html"><b>Feedback</b></a>
+        <a href="#"><b>Q&A</b></a>
+        <a href="#"><b>Contact Us</b></a>
+
+    </div>
+    <div class="button">
+        <a href="/login"><b>Login</b></a>
+      
+</nav>
+
+<center><font color="white"><p>user: <span id="email"></a></span></p></font></center>
+          <script>
+     const token = document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1];
+
+     (async () => {
+       const response = await fetch('/user', {
+         headers: { Authorization: `Bearer ${token}` },
+       });
+
+       if (response.ok) {
+         const data = await response.json();
+         var myDiv = document.getElementById("email");
+
+         myDiv.textContent = data.email;
+
+        // create a button element and set its text
+        var button = '<button></button>';
+
+        // create a link element and set its href and text
+        var link = '<a href="/logout" style="font-size: 18px; color: white;">Log out</a>';
+
+        // add the link to the button using innerHTML
+        button = button.replace('>', '>' + link);
+        myDiv.innerHTML += "<br><br>"+button;
+
+       } else {
+         location.href = '/login';
+       }
+     })();
+   </script>
+
+<section class="h-text">
+    <span><b>Explore</b></span>
+    <h1>Get anything done quick and easy</h1>
+    <br>
+    <a href="/register"><b>Resister Now</b></a>
+</section></header>
+ <!--<hr>-->
+<!--<hr color="transprant">-->
+<!--<hr>-->
+<!--<hr color=transprant></div>-->
+<div class="vivek1">
+        <div class="vivek2">
+            <div class="vivek3">
+                <div class="vivek4">
+                    <h1>About Us</h1>
+                </div>
+                <div class="vivek5">
+                    <h3>We Are Here To Improve Your Living</h3>
+                    <p>Our motive is to build an environment where you can get anything done, quick and easy in your area like sometimes we have to face problems with electricity, electronic repairment, water supply, and sometimes need labor for any specific work and many things you can get from 'Gvikas' quickly.
+                        our environment provides you with good living and growth for your business and profession that's why we are <h6>'Gvikas'</h6> which means Givika and Vikas.</p>
+                        <div class="vivek6">
+                            <a href="#">Read More</a>
+                        </div>
+                </div>
+                <div class="vivek7">
+                    <a href=""><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="vivek8">
+                <img src="img5.jpg " width="400" 
+     height="500" />
+            </div>
+        </div>
+        
+    </div>
+ 
+
+<div class="hero">
+    <form >
+        <div class="row"> <div class="input-group">
+            <input type="text" id="name" required>
+            
+            <label for="name"><i class="fa fa-user" aria-hidden="true"></i> Your Name</label>
+            </div>
+            <div class="input-group">
+                <input type="text" id="number" required>
+                <label for="number"><i class="fa fa-phone-square" aria-hidden="true"></i> Phone No.</label>
+                </div></div>
+       
+            <div class="input-group">
+                <input type="email" id="email" required>
+                <label for="email"><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
+                </div>
+                <div class="input-group">
+                   <textarea id="Massage"  rows="8"></textarea>
+                    <label for="Massage"><i class="fa fa-comments" aria-hidden="true"></i> Your Massage</label>
+                    </div>
+                    <button type="submit">SUBMIT<i class="fa fa-paper-plane" aria-hidden="true"></i></button> 
+    </form>
+</div>
+
+</body>
+</html>
